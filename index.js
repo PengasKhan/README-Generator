@@ -39,7 +39,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What license, if any, is this repository under?',
-        choices: ['MIT', 'GNU 3.0', 'Apache 2.0', 'ISC' ],
+        choices: ['mit', 'gpl-3.0', 'apache-2.0', 'isc' ],
     },
     {
         type: 'input',
@@ -54,10 +54,14 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile('README.md', data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.createPromptModule(questions).then((data) => {
+        const readmeData = generateMarkdown(data)
+    })
+}
 
 // Function call to initialize app
 init();
